@@ -4,10 +4,7 @@ import com.ljava.springcloud.entity.CommonResult;
 import com.ljava.springcloud.entity.Payment;
 import com.ljava.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -24,7 +21,9 @@ public class PaymentCroller {
     private PaymentService paymentService;
 
     @PostMapping("/payment/create")
-    public CommonResult create(Payment payment){
+    public CommonResult create(@RequestBody String serial){
+        Payment payment = new Payment();
+        payment.setSerial(serial);
         int result = paymentService.create(payment);
         log.info("*****payment插入结果:" + result);
         if(result > 0){
