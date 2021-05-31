@@ -1,15 +1,11 @@
 
 server:
-  port: 7001
+  port: 7002
 
 eureka:
   instance:
-    hostname: eureka7001.com
-    #Eureka客户端向服务端发送心跳的时间间隔,单位为秒(默认是30S)
-    lease-renewal-interval-in-seconds: 1
-    #Eureka服务端在收到最后一次心跳后等待时间上限,单位为秒(默认是90S),超时将剔除服务
-    lease-expiration-duration-in-seconds: 2
-  #hostname: localhost  #eureka服务端的实例名称
+    hostname: eureka7002.com
+    #hostname: localhost  #eureka服务端的实例名称
   client:
     #false表示不向注册中心注册自己
     register-with-eureka: false
@@ -18,13 +14,13 @@ eureka:
     fetch-registry: false
     service-url:
       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址
-      defaultZone: http://eureka7002.com:7002/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     # 关闭自我保护模式(生产环境不建议关闭)
-    enable-self-preservation: false
+    enable-self-preservation: true
     # 清理无效节点间隔（单位毫秒，默认是60*1000）开发阶段调小
-    eviction-interval-timer-in-ms: 2000
+    eviction-interval-timer-in-ms: 60000
 spring:
   application:
-    name: cloud-eureka-7001
+    name: cloud-eureka-7002
