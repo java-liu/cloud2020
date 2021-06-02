@@ -46,4 +46,9 @@ public class PaymentCroller {
             return new CommonResult(400,"查询数据失败,查询ID:" + id, null);
         }
     }
+
+     @GetMapping("/payment/lb")
+     public String getPaymentLB(){
+        return port;
+     }
 }

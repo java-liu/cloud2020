@@ -66,4 +66,8 @@ public class PaymentCroller {
 
         return this.discoveryClient;
     }
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return port;
+    }
 }
