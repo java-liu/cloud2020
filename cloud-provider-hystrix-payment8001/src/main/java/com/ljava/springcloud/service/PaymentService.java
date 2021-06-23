@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description: java类作用描述
+ * @Description: PaymentService
  * @Author: Liuys
  * @CreateDate: 2021/6/4 17:05
  * @Version: 1.0
@@ -21,6 +21,11 @@ public class PaymentService {
         return "线程池: " + Thread.currentThread().getName() + " paymentInfo_OK,id:"+ id + "\t";
     }
 
+    /***
+     * 超时访问
+     * @param id
+     * @return
+     */
     public String paymentInfo_Timeout(Integer id){
         int timeNumber = 3;
         try {

@@ -1,8 +1,7 @@
 package com.ljava.springcloud.controller;
 
-import com.ljava.springcloud.service.PaymentService;
+import com.ljava.springcloud.service.PaymentHystrixService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,29 +9,27 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @Description: java类作用描述
+ * @Description: PaymentHystrixController
  * @Author: Liuys
- * @CreateDate: 2021/6/4 17:17
+ * @CreateDate: 2021/6/7 11:29
  * @Version: 1.0
  */
 @RestController
 @Slf4j
-public class PaymentController {
+public class OrderHystrixController {
+
     @Resource
-    private PaymentService paymentService;
+    private PaymentHystrixService paymentHystrixService;
 
-    @Value("${server.port}")
-    private String serverPort;
-
-    @GetMapping("/payment/hystrix/ok/{id}")
+    @GetMapping("/consumer/hystrix/ok/{id}")
     public String paymentInfo_OK(@PathVariable("id") Integer id){
-        String result = paymentService.paymentInfo_OK(id);
+        String result = paymentHystrixService.paymentInfo_OK(id);
         log.info("******result:" + result);
         return result;
     }
-    @GetMapping("/payment/hystrix/timeout/{id}")
+    @GetMapping("/consumer/hystrix/timeout/{id}")
     public String paymentInfo_Timeout(@PathVariable("id") Integer id){
-        String result = paymentService.paymentInfo_Timeout(id);
+        String result = paymentHystrixService.paymentInfo_Timeout(id);
         log.info("******result:" + result);
         return result;
     }
