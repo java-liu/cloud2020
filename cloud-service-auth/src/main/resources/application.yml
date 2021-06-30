@@ -4,15 +4,15 @@ spring:
   application:
     name: cloud-service-auth
   redis:
-    host: 172.18.8.116
+    host: 182.92.76.182
     database: 15
-    password: password
+    password: java520
     port: 6379
 #eureka 注册中心
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://localhost:7001/eureka
     #表示是否将自己注册进EurekaServer 默认为true
     register-with-eureka: true
     #是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡

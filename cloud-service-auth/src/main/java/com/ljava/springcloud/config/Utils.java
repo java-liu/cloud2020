@@ -9,8 +9,8 @@ import lombok.Getter;
  * @CreateDate: 2021/6/29 17:40
  * @Version: 1.0
  */
-public enum Utils {
-    ORDER(1,"order");
+public class Utils {
+    /*ORDER(1,"order");
 
     @Getter private int code;
     @Getter private String msg;
@@ -27,5 +27,9 @@ public enum Utils {
             }
         }
         return null;
+    }*/
+    private static final String RESOURCE_ID = "order";
+    public static String getResourceId(){
+        return RESOURCE_ID;
     }
 }
