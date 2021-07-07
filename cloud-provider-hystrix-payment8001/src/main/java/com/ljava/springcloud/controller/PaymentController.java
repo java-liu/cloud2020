@@ -1,5 +1,6 @@
 package com.ljava.springcloud.controller;
 
+import com.ljava.springcloud.log.WebLog;
 import com.ljava.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,6 +26,7 @@ public class PaymentController {
     private String serverPort;
 
     @GetMapping("/payment/hystrix/ok/{id}")
+    @WebLog
     public String paymentInfo_OK(@PathVariable("id") Integer id){
         String result = paymentService.paymentInfo_OK(id);
         log.info("******result:" + result);

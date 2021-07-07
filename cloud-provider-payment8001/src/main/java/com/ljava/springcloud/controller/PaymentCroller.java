@@ -2,6 +2,7 @@ package com.ljava.springcloud.controller;
 
 import com.ljava.springcloud.entity.CommonResult;
 import com.ljava.springcloud.entity.Payment;
+import com.ljava.springcloud.log.WebLog;
 import com.ljava.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,6 +45,7 @@ public class PaymentCroller {
     }
 
     @GetMapping("/payment/get/{id}")
+    @WebLog
     public CommonResult getById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("*****payment查询结果:" + payment +"O(∩_∩)O哈哈~");
